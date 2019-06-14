@@ -11,13 +11,16 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Algoritmo-STV" />
+  </component>
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Contador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
+            <state relative-caret-position="213">
+              <caret line="67" column="61" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4916#4927#0" expanded="true" />
@@ -46,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="90">
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -73,15 +76,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pila_Votos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="89" column="10" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
+            <state relative-caret-position="133">
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#550#551#0" expanded="true" />
                 <element signature="e#585#586#0" expanded="true" />
                 <element signature="e#624#625#0" expanded="true" />
                 <element signature="e#656#657#0" expanded="true" />
-                <element signature="e#3756#3757#0" expanded="true" />
                 <element signature="e#3786#3787#0" expanded="true" />
               </folding>
             </state>
@@ -132,6 +134,12 @@
       <find>System</find>
       <find>Va a eliminar un candidato</find>
       <find>Votos de</find>
+      <find>Palmo</find>
+      <find>verificarG</find>
+      <find>PALMO LA VARA</find>
+      <find>palmo</find>
+      <find>votos de</find>
+      <find>palm</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -143,8 +151,8 @@
         <option value="$PROJECT_DIR$/src/Candidato.java" />
         <option value="$PROJECT_DIR$/src/Generador_de_pruebas.java" />
         <option value="$PROJECT_DIR$/src/Votacion.java" />
-        <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/Pila_Votos.java" />
+        <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/Contador.java" />
       </list>
     </option>
@@ -222,18 +230,18 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22859451" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49295774" weight="0.22859451" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Learn" order="6" />
-      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Favorites" order="7" sideWeight="0.5034965" side_tool="true" weight="0.22859451" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3178082" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.38767123" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13287671" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.7150685" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -354,13 +362,6 @@
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Voto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -376,17 +377,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Pila_Votos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="89" column="10" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
+        <state relative-caret-position="133">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#550#551#0" expanded="true" />
             <element signature="e#585#586#0" expanded="true" />
             <element signature="e#624#625#0" expanded="true" />
             <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#3756#3757#0" expanded="true" />
             <element signature="e#3786#3787#0" expanded="true" />
           </folding>
         </state>
@@ -394,8 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Contador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
+        <state relative-caret-position="213">
+          <caret line="67" column="61" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4916#4927#0" expanded="true" />
