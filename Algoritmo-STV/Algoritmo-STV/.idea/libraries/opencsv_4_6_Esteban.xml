@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="opencsv-4.6-Esteban">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/opencsv-4.6-Esteban.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
