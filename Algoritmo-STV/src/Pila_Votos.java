@@ -58,7 +58,6 @@ public class Pila_Votos {
                     System.out.println("El voto no es unico");
                     // Obtiene la siguiente opcion
                     Candidato SiguienteOpcion = Votos.get(i).getCandidatoPorPreferencia(Integer.toString(Votos.get(i).getRepresentante()+siguiente));
-                    System.out.println("La siguiente opcion del voto es "+SiguienteOpcion.getNombre());
                     while (SiguienteOpcion != null){
                         // Se verifica que la no se haya completado la lista de votos excedentes y que la segunda opcion no haya sido eliminada
                         if (cont < pNumVotosExcedentes){

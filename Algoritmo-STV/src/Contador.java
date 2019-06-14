@@ -16,6 +16,7 @@ public class Contador {
     private float Cuota;
     private ArrayList<Voto> VotosPorTransferir;
     private boolean huboGanador;
+    private boolean fin;
 
     // Constructor
 
@@ -47,7 +48,7 @@ public class Contador {
         // Ahora inicia el conteo
         System.out.println("Se inicio el ciclo");
         generarPrimerCorteDeVotos();
-        boolean fin = verificarFinVotacion();
+        fin = verificarFinVotacion();
         while (!fin){
             verificarGanador();
             if (huboGanador){
@@ -59,6 +60,7 @@ public class Contador {
                             System.out.println(pila.getCandidato().getNombre());
                         }
                     }
+                    fin = verificarFinVotacion();
                     break;
                 }
             }
@@ -72,6 +74,7 @@ public class Contador {
                             System.out.println(pila.getCandidato().getNombre());
                         }
                     }
+                    fin = verificarFinVotacion();
                     break;
                 }
             }
@@ -127,15 +130,20 @@ public class Contador {
         // Primero se saca el valor del mayor
         for (Pila_Votos pila : VotosPorCandidato){
             System.out.println("Votos de "+pila.getCandidato().getNombre()+" "+pila.getNumeroVotos());
-            if (pila.getNumeroVotos() >= mayor){
-                mayor = pila.getNumeroVotos();
+            // Se verifica solo para las pilas de datos que aun no hayan ganado
+            if (!pila.isGanador()){
+                if (pila.getNumeroVotos() >= mayor && pila.getNumeroVotos()>=Cuota){
+                    mayor = pila.getNumeroVotos();
+                }
             }
         }
         // Luego se sacan los candidatos que cumplen esa mayoria
         for (Pila_Votos pila : VotosPorCandidato){
-            if (pila.getNumeroVotos() == mayor){
-                System.out.println(pila.getCandidato().getNombre()+" tiene mayoria de votos.");
-                ganadores.add(pila.getCandidato());
+            if (pila.isGanador()){
+                if (pila.getNumeroVotos() == mayor){
+                    System.out.println(pila.getCandidato().getNombre()+" tiene mayoria de votos.");
+                    ganadores.add(pila.getCandidato());
+                }
             }
         }
         // Si hay un empate en mayoria de votos, selecciona uno por edad.
@@ -150,8 +158,13 @@ public class Contador {
             return ganador;
         }
         else{
-
-            return ganadores.get(0);
+            try {
+                return ganadores.get(0);
+            }
+            catch (IndexOutOfBoundsException e){
+                System.out.println("Ningun candidato alcanzo la cuota, se tiene que eliminar a uno");
+                return null;
+            }
         }
     }
 
@@ -160,35 +173,38 @@ public class Contador {
         huboGanador = false;
         System.out.println("VERIFICANDO GANADOR con un cuota de "+Cuota);
         Candidato ganador = determinarCandidatoConMayoria();
-        System.out.println("Se eligio a "+ganador.getNombre());
-        for (Pila_Votos banco_candidato : VotosPorCandidato){
-            if (banco_candidato.getCandidato() == ganador){
-                int VotosDelCandidato = banco_candidato.getNumeroVotos();
-                if (VotosDelCandidato >= Cuota && !banco_candidato.isGanador()){
-                    // Cuando un candidato resulta ganador se deben hacer 2 cosas:
-                    banco_candidato.setGanador(true);
-                    huboGanador = true;
-                    System.out.println("El candidato "+banco_candidato.getCandidato().getNombre()+" ha sido electo!");
+        if (ganador != null){
+            System.out.println("Se eligio a "+ganador.getNombre());
+            for (Pila_Votos banco_candidato : VotosPorCandidato){
+                if (banco_candidato.getCandidato().getCedula().equals(ganador.getCedula())){
+                    int VotosDelCandidato = banco_candidato.getNumeroVotos();
+                    if (VotosDelCandidato >= Cuota && !banco_candidato.isGanador()){
+                        // Cuando un candidato resulta ganador se deben hacer 2 cosas:
+                        banco_candidato.setGanador(true);
+                        huboGanador = true;
+                        System.out.println("El candidato "+banco_candidato.getCandidato().getNombre()+" ha sido electo!");
 
-                    // 1) Eliminarlo de los candidatos aun disponibles (se hace por cedula)
-                    for (int i = 0; i < ListaDeCandidatos.size(); i++){
-                        if (ListaDeCandidatos.get(i).getCedula().equals(banco_candidato.getCandidato().getCedula())){
-                            ListaDeCandidatos.remove(ListaDeCandidatos.get(i));
+                        // 1) Eliminarlo de los candidatos aun disponibles (se hace por cedula)
+                        for (int i = 0; i < ListaDeCandidatos.size(); i++){
+                            if (ListaDeCandidatos.get(i).getCedula().equals(banco_candidato.getCandidato().getCedula())){
+                                ListaDeCandidatos.remove(ListaDeCandidatos.get(i));
+                            }
                         }
-                    }
-                    System.out.println("Candidatos aun compitiendo: ");
-                    for (Candidato candidato : ListaDeCandidatos){
-                        System.out.println(candidato.getNombre());
-                    }
-                    // 2) Si los votos del candidato exceden la cuota se transfiere el excedente
-                    if (VotosDelCandidato > Cuota){
-                        float VotosExcedentes = VotosDelCandidato-Cuota;
-                        VotosPorTransferir = banco_candidato.getVotosExcedentes(VotosExcedentes, ListaDeCandidatos);
-                        System.out.println("Los votos a transferir son "+VotosPorTransferir.size());
+                        System.out.println("Candidatos aun compitiendo: ");
+                        for (Candidato candidato : ListaDeCandidatos){
+                            System.out.println(candidato.getNombre());
+                        }
+                        // 2) Si los votos del candidato exceden la cuota se transfiere el excedente
+                        if (VotosDelCandidato > Cuota){
+                            float VotosExcedentes = VotosDelCandidato-Cuota;
+                            VotosPorTransferir = banco_candidato.getVotosExcedentes(VotosExcedentes, ListaDeCandidatos);
+                            System.out.println("Los votos a transferir son "+VotosPorTransferir.size());
+                        }
                     }
                 }
             }
         }
+
     }
 
     private String[] eliminarNombreCandidato(String pCandidatoPorEliminar){
