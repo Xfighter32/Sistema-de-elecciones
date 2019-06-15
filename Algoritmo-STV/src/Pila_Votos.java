@@ -42,11 +42,11 @@ public class Pila_Votos {
         }
         return bandera;
     }
-        // 2,
+
     public ArrayList<Voto> getVotosExcedentes(float pNumVotosExcedentes, ArrayList<Candidato> pCandidatosDisponibles){
-        System.out.println("SACANDO "+pNumVotosExcedentes+" votos excedentes de "+Candidato.getNombre()+"!");
+        //System.out.println("SACANDO "+pNumVotosExcedentes+" votos excedentes de "+Candidato.getNombre()+"!");
         ArrayList<Voto> VotosExcedentes = new ArrayList<Voto>();
-        System.out.println("Se creo la lista para votos excedentes");
+        //System.out.println("Se creo la lista para votos excedentes");
         int cont = 0;
         int siguiente = 1;
         for (int i = 0; i < Votos.size(); i++){
@@ -55,7 +55,7 @@ public class Pila_Votos {
             }
             else if (!Votos.get(i).isVotoUnico()){
                     // Se verifica que el voto no sea unico
-                    System.out.println("El voto no es unico");
+                    //System.out.println("El voto no es unico");
                     // Obtiene la siguiente opcion
                     Candidato SiguienteOpcion = Votos.get(i).getCandidatoPorPreferencia(Integer.toString(Votos.get(i).getRepresentante()+siguiente));
                     while (SiguienteOpcion != null){
@@ -66,15 +66,15 @@ public class Pila_Votos {
                                 VotosExcedentes.add(Votos.get(i));
                                 // Se saca el voto de la lista local de votos
                                 Votos.remove(Votos.get(i));
-                                System.out.println("El candidato "+SiguienteOpcion.getNombre()+" sigue compitiendo y se agregó a la lista de votos excedentes");
+                                //System.out.println("El candidato "+SiguienteOpcion.getNombre()+" sigue compitiendo y se agregó a la lista de votos excedentes");
                                 cont ++;
-                                System.out.println("La lista de votos excedentes tiene "+VotosExcedentes.size()+" votos.");
+                                //System.out.println("La lista de votos excedentes tiene "+VotosExcedentes.size()+" votos.");
                                 break;
                             }
                             else{
                                 siguiente++;
                                 SiguienteOpcion = Votos.get(i).getCandidatoPorPreferencia(Integer.toString(Votos.get(i).getRepresentante()+siguiente));
-                                System.out.println("El candidato ya no esta compitiendo, pasando a la siguiente opcion ...");
+                                //System.out.println("El candidato ya no esta compitiendo, pasando a la siguiente opcion ...");
                             }
 
                         }
@@ -87,7 +87,7 @@ public class Pila_Votos {
 
             }
 
-        System.out.println("Se completó la lista de votos excedentes, tiene "+VotosExcedentes.size()+" votos.");
+        //System.out.println("Se completó la lista de votos excedentes, tiene "+VotosExcedentes.size()+" votos.");
         return VotosExcedentes;
     }
 
